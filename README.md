@@ -1,63 +1,108 @@
-# blacktrack
+<p align="center">
+  <img src="assets/banner.svg" alt="blacktrack" width="100%">
+</p>
 
-Caja negra flotante para macOS, pegada arriba al centro de la pantalla (como un notch). Mide 7 × 5 cm reales y se contrae a una línea de 7 × 1 cm con un switch.
+<p align="center">
+  <img src="https://img.shields.io/badge/macOS-13%2B-000000?style=flat-square&logo=apple&logoColor=white" alt="macOS 13+">
+  <img src="https://img.shields.io/badge/Swift-5.9-000000?style=flat-square&logo=swift&logoColor=white" alt="Swift 5.9">
+  <img src="https://img.shields.io/badge/SwiftUI-AppKit-4C8DFF?style=flat-square" alt="SwiftUI + AppKit">
+  <img src="https://img.shields.io/badge/Spotify-control-1DB954?style=flat-square&logo=spotify&logoColor=white" alt="Spotify">
+</p>
 
-**Estado:** hecha y probada en un MacBook Air (macOS 13 o superior). La última tanda de cambios (pestaña de carpetas con arrastre, curva de volumen, teclado solo en Notas) no se confirmó con una compilación completa; si algo no compila, ver "Si falla".
+<p align="center">
+  Una caja negra que vive arriba al centro de tu Mac, pegada al notch.<br>
+  Guarda archivos, abre tus carpetas, controla tu música y toma notas, sin salir de lo que estás haciendo.
+</p>
 
-## Qué tiene
+---
 
-| Pestaña | Qué hace |
+## Cómo se usa
+
+### 1. Actívala y desactívala con el switch
+
+<p align="center">
+  <img src="assets/demo-colapsar.svg" alt="El switch contrae la caja a una línea y la vuelve a expandir" width="720">
+</p>
+
+Expandida mide **7 × 5 cm reales**. Con el switch se contrae a una línea de **7 × 1 cm** que deja a la mano play y siguiente. También puedes usar el atajo `Ctrl + Opción + Espacio`.
+
+### 2. Arrastra cualquier cosa adentro
+
+<p align="center">
+  <img src="assets/demo-soltar.svg" alt="Arrastrar un archivo a la caja y que se quede guardado" width="720">
+</p>
+
+Archivos, carpetas, PDFs, imágenes y capturas de pantalla se quedan guardados ahí hasta que los uses. Doble clic los abre, y los puedes arrastrar de vuelta a donde quieras. Si sueltas un archivo sobre la línea contraída, la caja se abre sola.
+
+### 3. Cinco pestañas
+
+<p align="center">
+  <img src="assets/demo-pestanas.svg" alt="Las cinco pestañas: Archivos, Carpetas, Música, Portapapeles y Notas" width="720">
+</p>
+
+| Pestaña | Para qué sirve |
 |---|---|
-| Archivos | Arrastras archivos, carpetas, PDFs, imágenes y capturas, y se quedan guardados. Doble clic abre. Las capturas flotantes se copian a una carpeta propia porque macOS las borra solas. |
-| Carpetas | Muestra las subcarpetas de una carpeta (por defecto el Escritorio) y se actualiza sola. Clic abre. Arrastrar una carpeta hacia afuera la **copia**, no la mueve. Soltar un archivo encima de una carpeta lo copia adentro. |
-| Música | Spotify: portada, título, progreso, anterior, play/pausa, siguiente y volumen. |
-| Portapapeles | Últimos 25 textos copiados (en memoria, no se guarda en disco; ignora lo que copian los gestores de contraseñas). |
-| Notas | Bloc rápido que se guarda solo. Es la única pestaña que recibe teclado. |
+| **Archivos** | Tu estante temporal. Las capturas flotantes se copian a una carpeta propia para que macOS no las borre. |
+| **Carpetas** | Las carpetas de tu Escritorio (o la que elijas) a un clic. Se actualiza sola, y arrastrar una carpeta hacia afuera la **copia**, no la mueve. |
+| **Música** | Portada, canción, progreso, anterior, play/pausa, siguiente y volumen de Spotify. |
+| **Portapapeles** | Lo último que copiaste. No guarda nada en disco e ignora lo que copian los gestores de contraseñas. |
+| **Notas** | Un bloc rápido que se guarda solo. |
 
-Extras: atajo `Ctrl + Opción + Espacio` para expandir/contraer, clic derecho en la caja para "Auto-contraer", "Abrir al iniciar sesión", "Vaciar estante" y "Salir".
+Clic derecho sobre la caja para: **Auto-contraer** al sacar el mouse, **Abrir al iniciar sesión**, **Vaciar estante** y **Salir**.
 
-## Requisitos
-
-- macOS 13 o superior.
-- Xcode instalado (App Store) y su licencia aceptada: `sudo xcodebuild -license accept`.
-- Spotify de escritorio (solo para la pestaña de música).
+---
 
 ## Instalar
 
+**Requisitos:** macOS 13 o superior, Xcode (gratis en la App Store) y Spotify de escritorio para la pestaña de música.
+
 ```bash
-git clone <URL-DE-ESTE-REPO> blacktrack
+git clone https://github.com/emilianocros27-bit/blacktrack.git
 cd blacktrack
 bash build.sh
 ```
 
-`build.sh` compila, arma `build/blacktrack.app`, la firma localmente y la abre. Para que quede instalada:
+Para dejarla instalada:
 
 ```bash
 cp -R build/blacktrack.app /Applications/
+open /Applications/blacktrack.app
 ```
 
-Luego abre la app desde Aplicaciones, haz clic derecho sobre la caja y activa **Abrir al iniciar sesión**.
+Luego haz clic derecho sobre la caja y activa **Abrir al iniciar sesión**.
 
-## Permisos que macOS va a pedir
+### O deja que Claude lo haga
 
-1. **Automatización → Spotify**: pulsa Permitir cuando pregunte, o actívalo en Ajustes del Sistema → Privacidad y seguridad → Automatización.
-2. **Escritorio / Documentos**: solo si la pestaña de carpetas apunta a esas carpetas.
+Si tu Claude puede usar la terminal de tu Mac, pégale esto:
 
-## Cambiar la carpeta de la pestaña Carpetas
+> Clona https://github.com/emilianocros27-bit/blacktrack, lee README.md y CLAUDE.md, y déjame blacktrack instalada y funcionando en mi Mac. Avísame antes de hacer algo que cambie mi sistema. Háblame en español, paso a paso, y dime qué debo ver en pantalla en cada etapa.
 
-Edita `Sources/LemiShelf/Config.swift` y cambia `foldersPath` (por ejemplo `"~/Documents/Proyectos"`), y vuelve a correr `bash build.sh`.
+---
 
-## Cambiar tamaños
+## Permisos
 
-En `Sources/LemiShelf/PanelController.swift`, función `updateMetrics()`: `7 * cm` de ancho, `5 * cm` de alto y `1 * cm` para la línea contraída.
+| macOS te pregunta por | Qué hacer |
+|---|---|
+| Controlar **Spotify** | Pulsa **Permitir**. Si no salió, ve a Ajustes del Sistema → Privacidad y seguridad → Automatización. |
+| Acceder al **Escritorio** | Pulsa **Permitir**, para que la pestaña Carpetas pueda leerlo. |
+| Licencia de **Xcode** | Ejecuta `sudo xcodebuild -license accept` una vez. |
 
-## Si falla
+## Personalizar
+
+| Quiero cambiar | Dónde |
+|---|---|
+| La carpeta de la pestaña Carpetas | `Sources/LemiShelf/Config.swift` → `foldersPath` |
+| El tamaño de la caja | `Sources/LemiShelf/PanelController.swift` → `updateMetrics()` |
+| La curva del volumen | `Sources/LemiShelf/MusicView.swift` → `curve` |
+
+Después de cualquier cambio, vuelve a correr `bash build.sh`.
+
+## Si algo falla
 
 - `permission denied: ./build.sh` → usa `bash build.sh`.
-- Error de licencia de Xcode → `sudo xcodebuild -license accept`.
-- Línea con `error:` al compilar → ese es el problema; pégasela a tu Claude con el archivo al que apunta.
 - La música dice que Spotify no está abierto → revisa el permiso de Automatización.
+- Sale una línea con `error:` al compilar → ese es el problema; pégasela a tu Claude junto con el archivo al que apunta.
 
-## Para pegarle esto a Claude
+---
 
-Mira `CLAUDE.md`: ahí está el texto exacto que puedes pegar en tu Claude para que lo instale y lo deje funcionando.
+<p align="center"><sub>Hecho con SwiftUI + AppKit · Las animaciones de esta página son SVG, sin videos.</sub></p>

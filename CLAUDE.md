@@ -4,7 +4,7 @@ Este repositorio es una app de macOS (Swift Package, SwiftUI + AppKit). El objet
 
 ## Texto para pegar en tu Claude
 
-> Clona este repositorio `<URL-DE-ESTE-REPO>`, lee `README.md` y `CLAUDE.md`, y déjame blacktrack instalada y funcionando en mi Mac. Avísame antes de hacer algo que cambie mi sistema (licencia de Xcode, copiar a Aplicaciones, activar inicio automático). Háblame en español, paso a paso, y dime qué debo ver en pantalla en cada etapa.
+> Clona este repositorio `https://github.com/emilianocros27-bit/blacktrack`, lee `README.md` y `CLAUDE.md`, y déjame blacktrack instalada y funcionando en mi Mac. Avísame antes de hacer algo que cambie mi sistema (licencia de Xcode, copiar a Aplicaciones, activar inicio automático). Háblame en español, paso a paso, y dime qué debo ver en pantalla en cada etapa.
 
 ## Qué debes hacer
 
